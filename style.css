@@ -509,11 +509,20 @@ section {
 
 .image-wrapper {
     position: relative;
-    aspect-ratio: 1;
+    aspect-ratio: auto; /* Permite que use su proporción natural */
     border-radius: 20px;
     overflow: hidden;
+    width: 100%;
+    max-height: 600px; /* Ajusta según necesites */
 }
 
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* CONTAIN en lugar de COVER - muestra todo */
+    object-position: center;
+    border-radius: 20px;
+}
 .image-placeholder {
     width: 100%;
     height: 100%;
@@ -1785,6 +1794,26 @@ body, a, button, input, textarea {
     .btn {
         width: 100%;
         justify-content: center;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .image-wrapper {
+        max-width: 300px; /* Limita el tamaño en móvil */
+        margin: 0 auto; /* Centra la imagen */
+    }
+    
+    .about-image {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-wrapper {
+        max-height: 400px; /* Más pequeña en móvil */
+        aspect-ratio: 3/4;
     }
 }
 
