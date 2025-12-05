@@ -366,7 +366,7 @@ const projectsData = {
 
     // ... resto de proyectos
         'menu-system': {
-        title: 'Menú Interactivo',
+        title: 'Menú Interactivo para Restaurantes',
         tags: ['PHP', 'MySQL', 'JavaScript', 'HTML', 'UI'],
         description: 'Sistema web interactivo para restaurantes que permite a los clientes ordenar desde su móvil o tablet mediante un menú dinámico, intuitivo y multilenguaje. Incluye panel administrativo oculto para gestionar productos, pedidos, disponibilidad y facturación',
         features: [
@@ -454,6 +454,40 @@ const projectsData = {
         ],
         liveUrl: 'https://fitness-time-eda5a.web.app',
         githubUrl: 'https://fitness-time-eda5a.web.app'
+
+    },
+
+    //Videojuego indie de terror UNITY
+        'videojuego-spirexx': {
+        title: 'Videojuego 3D "Spirexx"',
+        tags: ['Unity', '3D', 'C#', 'Indie'],
+        description: 'Spirexx es un videojuego de terror en primera persona desarrollado en Unity, diseñado como un prototipo jugable que combina exploración urbana, tensión psicológica y mecánicas básicas de supervivencia. El proyecto se enfocó en crear una experiencia inmersiva utilizando iluminación dramática, sonidos ambientales, fisicas realistas y un flujo de juego que genera incertidumbre constante.',
+        features: [
+            'Control en primera persona',
+            'Cámara con rotación suave y sensibilidad ajustable.',
+            'Sistema de detección de suelo y colisiones.',
+            'Sombras dinámicas para crear tensión',
+            'Post-processing para añadir niebla, viñeta y tono frío',
+            'Presentación de precios y promociones',
+            'Sonido ambiental realista (viento, pasos, crujidos).',
+            'Movimiento controlado por scripts',
+            'Menu de pausa',
+            'Sistema de linterna con bateria Recargable'
+        ],
+technologies: [
+    { icon: '<i class="devicon-csharp-plain colored"></i>', name: 'C#' },
+    { icon: '<i class="devicon-unity-plain colored"></i>', name: 'Unity'},
+    { icon: '<i class="devicon-blender-original colored"></i>', name: 'Blender' },
+],
+        images: [
+            'assets/spirexx/captura1.jpg',
+            'assets/spirexx/captura2.jpg',
+            'assets/spirexx/captura3.jpg',
+            'assets/spirexx/captura4.jpg',
+            'assets/spirexx/captura5.jpg',
+            'assets/spirexx/captura6.jpg'
+        ],
+        githubUrl: null
 
     },
 };
