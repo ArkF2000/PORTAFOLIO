@@ -362,6 +362,8 @@ const projectsData = {
         githubUrl: 'https://github.com/ArkF2000/Punto-de-Venta-Web-para-Supermercado.git',
         liveUrl: null
     },
+
+
     // ... resto de proyectos
         'menu-system': {
         title: 'Menú Interactivo',
@@ -406,6 +408,53 @@ const projectsData = {
         ],
         githubUrl: 'https://github.com/ArkF2000/Punto-de-Venta-Web-para-Supermercado.git',
         liveUrl: null
+    },
+
+
+
+    //Landing page para gimnasio
+        'landing-page-gym': {
+        title: 'Landing Page - Gimnasio',
+        tags: ['MySQL', 'JavaScript', 'HTML', 'UI'],
+        description: 'landing page para promocionar el gimnasio “Fitness Time”, con el objetivo de presentar los servicios, instalaciones, precios y facilitar la inscripción de nuevos usuarios de forma atractiva y directa. La página resume en un solo flujo toda la información relevante, desde la propuesta de valor, las opciones de contacto y ubicación, ofreciendo una navegación simple, atractiva y clara para visitantes interesados en inscribirse.',
+        features: [
+            'Diseño responsivo',
+            'Sección de servicios e instalaciones',
+            'Integración de API con WhatsApp para contacto directo',
+            'Galería de imágenes del gimnasio',
+            'Llamado a la acción (CTA) destacado',
+            'Presentación de precios y promociones',
+            'Enlaces a redes sociales',
+            'Optimización visual y minimalista',
+            'Carga ligera y rápida',
+            'Información de horarios y ubicación'
+        ],
+        technologies: [
+            { icon: '<i class="devicon-javascript-plain colored"></i>', name: 'JavaScript' },
+            { icon: '<i class="devicon-html5-plain colored"></i>', name: 'HTML5' },
+            { icon: '<i class="devicon-css3-plain colored"></i>', name: 'CSS3' },
+            //{ icon: '<i class="devicon-bootstrap-plain colored"></i>', name: 'Bootstrap' },
+            //{ icon: '<i class="devicon-react-original colored"></i>', name: 'React' },
+            //{ icon: '<i class="devicon-nodejs-plain colored"></i>', name: 'Node.js' },
+            //{ icon: '<i class="devicon-mongodb-plain colored"></i>', name: 'MongoDB' },
+            //{ icon: '<i class="devicon-python-plain colored"></i>', name: 'Python' },
+            //{ icon: '<i class="devicon-laravel-plain colored"></i>', name: 'Laravel' },
+            //{ icon: '<i class="devicon-vuejs-plain colored"></i>', name: 'Vue.js' },
+            //{ icon: '<i class="devicon-postgresql-plain colored"></i>', name: 'PostgreSQL' },
+            //{ icon: '<i class="devicon-flask-original colored"></i>', name: 'Flask' },
+            //{ icon: '<i class="devicon-express-original colored"></i>', name: 'Express' },
+        ],
+        images: [
+            'assets/gimnasio/captura1.jpg',
+            'assets/gimnasio/captura2.jpg',
+            'assets/gimnasio/captura3.jpg',
+            'assets/gimnasio/captura4.jpg',
+            'assets/gimnasio/captura5.jpg',
+            'assets/gimnasio/captura6.jpg'
+        ],
+        liveUrl: 'https://fitness-time-eda5a.web.app',
+        githubUrl: 'https://fitness-time-eda5a.web.app'
+
     },
 };
 
