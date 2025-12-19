@@ -531,6 +531,43 @@ technologies: [
         githubUrl: 'https://github.com/ArkF2000/clipzo.git',
         liveUrl: null
     },
+
+    // Sistema de Reportes Escolares
+    'reportes-escolares': {
+    title: 'Sistema de Reportes Escolares',
+    tags: ['PHP', 'MySQL', 'JavaScript', 'CRUD'],
+    description: 'Sistema web completo para la gestión y digitalización de reportes disciplinarios escolares. Diseñado con arquitectura de dos roles (Administrador y Profesor), permite la administración integral de grados, secciones, materias, profesores y alumnos, así como la creación, seguimiento y análisis de reportes disciplinarios. El sistema implementa un flujo de asignaciones jerárquicas donde el administrador asigna recursos educativos a profesores, quienes posteriormente gestionan alumnos y generan reportes dentro de sus asignaciones. Incluye validación de permisos multinivel, prevención de duplicados y manejo de estados (activo/inactivo/anulado) en lugar de eliminaciones.',
+
+    features: [
+        'Sistema de autenticación con roles (Admin/Profesor)',
+        'Panel administrativo con CRUD completo',
+        'Gestión de grados, secciones y materias',
+        'Asignación dinámica de recursos a profesores',
+        'Navegación contextual con breadcrumbs',
+        'Gestión de alumnos por grado y sección',
+        'Sistema de reportes disciplinarios',
+        'Control de estados sin eliminaciones',
+        'Validación de permisos por asignaciones',
+        'Estadísticas y análisis por materia',
+        'Interfaz responsive y moderna',
+        'Sesiones seguras con timeout',
+    ],
+    technologies: [
+        { icon: '<i class="devicon-php-plain colored"></i>', name: 'PHP' },
+        { icon: '<i class="devicon-mysql-plain colored"></i>', name: 'MySQL' },
+        { icon: '<i class="devicon-javascript-plain colored"></i>', name: 'JavaScript' },
+        { icon: '<i class="devicon-html5-plain colored"></i>', name: 'HTML5' },
+        { icon: '<i class="devicon-css3-plain colored"></i>', name: 'CSS3' },
+    ],
+    images: [
+        'assets/reportes/captura1.jpg',
+        'assets/reportes/captura2.jpg',
+        'assets/reportes/captura3.jpg',
+        'assets/reportes/captura4.jpg'
+    ],
+    githubUrl: 'https://github.com/tu-usuario/reportes-escolares.git',
+    liveUrl: null
+}
 };
 
 // Función para abrir modal
