@@ -686,41 +686,53 @@ document.addEventListener('keydown', (e) => {
 
 
 
-// ===== FORMULARIO DE CONTACTO =====
+// ===== FORMULARIO DE CONTACTO (Formspree REAL) =====
 const contactForm = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
 
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
-    // Simular envío
+
     const formData = new FormData(contactForm);
     const data = Object.fromEntries(formData);
-    
+
     // Validación básica
-    if (!data.name || !data.email || !data.subject || !data.message) {
+    if (!data.nombre || !data.email || !data.asunto || !data.mensaje) {
         showMessage('Por favor completa todos los campos', 'error');
         return;
     }
-    
+
     // Validar email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(data.email)) {
         showMessage('Por favor ingresa un email válido', 'error');
         return;
     }
-    
-    // Simular envío exitoso
-    setTimeout(() => {
-        showMessage('¡Mensaje enviado con éxito! Te contactaré pronto.', 'success');
-        contactForm.reset();
-    }, 1000);
+
+    try {
+        const response = await fetch(contactForm.action, {
+            method: contactForm.method,
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            showMessage('¡Mensaje enviado con éxito! Te contactaré pronto.', 'success');
+            contactForm.reset();
+        } else {
+            showMessage('Error al enviar el mensaje. Intenta de nuevo.', 'error');
+        }
+    } catch (error) {
+        showMessage('Error de conexión. Intenta más tarde.', 'error');
+    }
 });
 
 function showMessage(message, type) {
     formMessage.textContent = message;
     formMessage.className = `form-message ${type}`;
-    
+
     setTimeout(() => {
         formMessage.className = 'form-message';
     }, 5000);
