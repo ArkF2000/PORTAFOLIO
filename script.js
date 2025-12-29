@@ -567,7 +567,47 @@ technologies: [
     ],
     githubUrl: 'https://github.com/tu-usuario/reportes-escolares.git',
     liveUrl: null
+},
+
+// Sistema de Gestión Legal
+'gestion-legal': {
+    title: 'Sistema de Gestión Legal',
+    tags: ['PHP', 'MySQL', 'JavaScript', 'CRUD', 'LegalTech'],
+    description: 'Sistema web diseñado para la gestión integral de expedientes legales, clientes, audiencias y control de pagos en despachos jurídicos. Permite digitalizar expedientes físicos y transformarlos en un flujo de trabajo organizado, priorizado y fácil de consultar. El sistema centraliza información legal crítica como estados procesales, plazos, audiencias y honorarios, reduciendo errores, olvidos y tiempos de búsqueda. Está enfocado en usabilidad, control y escalabilidad, con una interfaz moderna y responsive orientada a profesionales del derecho.',
+
+    features: [
+        'Sistema de autenticación segura',
+        'Dashboard con indicadores legales clave',
+        'Gestión completa de casos legales (CRUD)',
+        'Registro y control de clientes',
+        'Estados legales configurables (en proceso, audiencia, cerrado, etc.)',
+        'Gestión de audiencias y plazos legales',
+        'Control de casos activos e inactivos',
+        'Gestión de pagos, deudas y pagos parciales',
+        'Clasificación de casos (singular o colectivo)',
+        'Notas internas privadas por caso',
+        'Subida y organización de documentos legales',
+        'Interfaz responsive, moderna y orientada a productividad',
+    ],
+    technologies: [
+        { icon: '<i class="devicon-php-plain colored"></i>', name: 'PHP' },
+        { icon: '<i class="devicon-mysql-plain colored"></i>', name: 'MySQL' },
+        { icon: '<i class="devicon-javascript-plain colored"></i>', name: 'JavaScript' },
+        { icon: '<i class="devicon-html5-plain colored"></i>', name: 'HTML5' },
+        { icon: '<i class="devicon-css3-plain colored"></i>', name: 'CSS3' },
+    ],
+    images: [
+        'assets/SLegal/captura1.jpg',
+        'assets/SLegal/captura2.jpg',
+        'assets/SLegal/captura3.jpg',
+        'assets/SLegal/captura4.jpg',
+        'assets/SLegal/captura5.jpg',
+        'assets/SLegal/captura6.jpg',
+    ],
+    githubUrl: 'https://github.com/tu-usuario/gestion-legal.git',
+    liveUrl: null
 }
+
 };
 
 // Función para abrir modal
@@ -657,6 +697,7 @@ function openProjectModal(projectId) {
     projectModal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
+
 
 // Función para cerrar modal
 function closeProjectModal() {
