@@ -611,9 +611,13 @@ technologies: [
 };
 
 // Función para abrir modal
+// Función para abrir modal
 function openProjectModal(projectId) {
     const project = projectsData[projectId];
     if (!project) return;
+    
+    // Filtrar solo imágenes reales (no placeholders)
+    const realImages = project.images.filter(img => !img.startsWith('ruta/'));
     
     // Generar HTML del modal
     const modalHTML = `
@@ -629,7 +633,7 @@ function openProjectModal(projectId) {
             <h3>📸 Galería de Imágenes</h3>
             <div class="gallery-grid">
                 ${project.images.map((img, index) => `
-                    <div class="gallery-item">
+                    <div class="gallery-item" data-image-src="${img}" data-image-index="${index}">
                         ${img.startsWith('ruta/') ? `
                             <div class="gallery-placeholder">
                                 <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -696,6 +700,21 @@ function openProjectModal(projectId) {
     modalBody.innerHTML = modalHTML;
     projectModal.classList.add('active');
     document.body.style.overflow = 'hidden';
+    
+    // IMPORTANTE: Agregar event listeners DESPUÉS de insertar el HTML
+    setTimeout(() => {
+        const galleryItems = modalBody.querySelectorAll('.gallery-item');
+        galleryItems.forEach((item) => {
+            item.addEventListener('click', function() {
+                const imageSrc = this.getAttribute('data-image-src');
+                // Solo abrir lightbox si no es placeholder
+                if (!imageSrc.startsWith('ruta/')) {
+                    const imageIndex = parseInt(this.getAttribute('data-image-index'));
+                    openLightbox(realImages, realImages.indexOf(imageSrc));
+                }
+            });
+        });
+    }, 100);
 }
 
 
@@ -724,6 +743,98 @@ document.addEventListener('keydown', (e) => {
         closeProjectModal();
     }
 });
+
+
+// ===== LIGHTBOX DE IMÁGENES =====
+const imageLightbox = document.getElementById('imageLightbox');
+const lightboxImage = document.getElementById('lightboxImage');
+const lightboxClose = document.getElementById('lightboxClose');
+const lightboxPrev = document.getElementById('lightboxPrev');
+const lightboxNext = document.getElementById('lightboxNext');
+const lightboxCounter = document.getElementById('lightboxCounter');
+
+let currentImages = [];
+let currentImageIndex = 0;
+
+function openLightbox(images, index) {
+    currentImages = images;
+    currentImageIndex = index;
+    showLightboxImage();
+    imageLightbox.classList.add('active');
+    document.body.classList.add('lightbox-active');
+}
+
+function closeLightbox() {
+    imageLightbox.classList.remove('active');
+    document.body.classList.remove('lightbox-active');
+}
+
+function showLightboxImage() {
+    if (currentImages.length === 0) return;
+    
+    lightboxImage.src = currentImages[currentImageIndex];
+    lightboxCounter.textContent = `${currentImageIndex + 1} / ${currentImages.length}`;
+    
+    // Animación
+    lightboxImage.style.animation = 'none';
+    setTimeout(() => {
+        lightboxImage.style.animation = 'zoomIn 0.3s ease';
+    }, 10);
+}
+
+function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+    showLightboxImage();
+}
+
+function prevImage() {
+    currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
+    showLightboxImage();
+}
+
+// Event listeners del lightbox
+lightboxClose.addEventListener('click', closeLightbox);
+lightboxPrev.addEventListener('click', prevImage);
+lightboxNext.addEventListener('click', nextImage);
+
+// Cerrar al hacer click fuera de la imagen
+imageLightbox.addEventListener('click', (e) => {
+    if (e.target === imageLightbox) {
+        closeLightbox();
+    }
+});
+
+// Navegación con teclado
+document.addEventListener('keydown', (e) => {
+    if (!imageLightbox.classList.contains('active')) return;
+    
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') prevImage();
+    if (e.key === 'ArrowRight') nextImage();
+});
+
+// Soporte para gestos táctiles en móvil
+let touchStartX = 0;
+let touchEndX = 0;
+
+imageLightbox.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+imageLightbox.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    const swipeThreshold = 50;
+    if (touchEndX < touchStartX - swipeThreshold) {
+        nextImage(); // Swipe left
+    }
+    if (touchEndX > touchStartX + swipeThreshold) {
+        prevImage(); // Swipe right
+    }
+}
 
 
 
