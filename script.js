@@ -365,7 +365,42 @@ const projectsData = {
 
 
     // ... resto de proyectos
-        'menu-system': {
+
+    'campeonatos-deportivos': {
+        title: 'Plataforma de Campeonatos Deportivos',
+        tags: ['PHP', 'MySQL', 'JavaScript', 'HTML', 'Deportes'],
+        description: 'Sistema web desarrollado para la gestión integral de campeonatos deportivos escolares. Permite registrar equipos, asignar salones o grados, programar encuentros, administrar resultados y visualizar tablas de posiciones en tiempo real para diferentes disciplinas deportivas.',
+        features: [
+            'Registro y gestión de equipos',
+            'Asignación de salones o grados',
+            'Creación y programación de partidos',
+            'Control de resultados en tiempo real',
+            'Tabla de posiciones automática',
+            'Gestión de múltiples deportes',
+            'Panel administrativo completo',
+            'Estadísticas de equipos y partidos',
+            'Calendario de encuentros',
+            'Visualización de campeonatos activos e históricos'
+        ],
+        technologies: [
+            { icon: '<i class="devicon-php-plain colored"></i>', name: 'PHP' },
+            { icon: '<i class="devicon-mysql-plain colored"></i>', name: 'MySQL' },
+            { icon: '<i class="devicon-javascript-plain colored"></i>', name: 'JavaScript' },
+            { icon: '<i class="devicon-html5-plain colored"></i>', name: 'HTML5' },
+            { icon: '<i class="devicon-css3-plain colored"></i>', name: 'CSS3' }
+        ],
+        images: [
+            'assets/campeonatos/captura1.png',
+            'assets/campeonatos/captura2.png',
+            'assets/campeonatos/captura3.png',
+            'assets/campeonatos/captura4.png',
+            'assets/campeonatos/captura5.png'
+        ],
+        githubUrl: null,
+        liveUrl: null
+    },
+
+    'menu-system': {
         title: 'Menú Interactivo para Restaurantes',
         tags: ['PHP', 'MySQL', 'JavaScript', 'HTML', 'UI'],
         description: 'Sistema web interactivo para restaurantes que permite a los clientes ordenar desde su móvil o tablet mediante un menú dinámico, intuitivo y multilenguaje. Incluye panel administrativo oculto para gestionar productos, pedidos, disponibilidad y facturación',
